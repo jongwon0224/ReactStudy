@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import logo from '../logo.svg';
 
 export default function Practice001() {
 
@@ -11,15 +11,18 @@ export default function Practice001() {
         setCount(count + 1);
     }
 
-    if (count == 4) {
+    if (count === 4) {
         count = 0;
     }
 
     return (
-        <div>
-            <p>{txtArr[ count ]}</p>
-            <button style={ {fontSize : 20, fontWeight : "bold"} } onClick={() => changeTxt()}
-            >변경버튼</button>
+        <div className="App">
+            <header className="App-header">
+                <img src={logo} className="App-logo" alt="logo" />
+                <p>{txtArr[ count ]}</p>
+                <button style={{ fontSize: 20, fontWeight: "bold" }} onClick={() => changeTxt()}
+                >변경버튼</button>
+            </header>
         </div>
     );
 }
