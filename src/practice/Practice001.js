@@ -19,8 +19,8 @@ export default function Practice001() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                <p>{txtArr[ count ]}</p>
-                <button style={{ fontSize: 20, fontWeight: "bold" }} onClick={() => changeTxt()}
+                <p>{txtArr[count]}</p>
+                <button onClick={() => changeTxt()}
                 >변경버튼</button>
             </header>
         </div>

@@ -7,6 +7,8 @@ import State02 from './components/State02';
 import Props01 from './components/Props01';
 import Quiz001 from './practice/Quiz001';
 import Practice001 from './practice/Practice001';
+import Props02 from './components/Props02';
+
 
 function App(props) {
 
@@ -17,7 +19,8 @@ function App(props) {
     // <State02 />,
     // <Props01 />,
     // <Quiz001 />,
-      <Practice001/>
+      // <Practice001/>,
+      <Props02/>
   );
 }
 
