@@ -6,16 +6,13 @@ export default function NewsBlog() {
 
 
     let title = 'React Study';
-
+    // 글제목 3개
     let [ news, setNews ] = useState([ '오늘의 뉴스', '어제의 뉴스', '내일의 뉴스' ]);
-    let [ num, setNum ] = useState(0);
+    // 좋아요 3개
+    let [ num, setNum ] = useState([ 0, 0, 0 ]);
     let text = '내용 무';
 
 
-    function heartClick(event) {
-        event.stopPropagation();
-        setNum(num + 1);
-    }
 
     function newsChange() {
         // setNews(news.filter((value) => {
@@ -51,27 +48,27 @@ export default function NewsBlog() {
                 <div style={{ color: 'orange', fontSize: '20px' }}>{title}</div>
             </div>
 
-            <div className='post-list'>
-                <h4 onClick={() => {onOff()}}>{news[ 0 ]} <span className='heart' onClick={(event) => { heartClick(event); }}>♥</span>
-                    <span className='font-size'>{num}</span></h4>
-                <p>{text}</p>
-            </div>
-
-            <div className='post-list'>
-                <h4>{news[ 1 ]}</h4>
-                <p>{text}</p>
-            </div>
-
-            <div className='post-list'>
-                <h4>{news[ 2 ]}</h4>
-                <p>{text}</p>
-            </div>
-
+            {
+                news.map((item, index) => {
+                    return (
+                        <div className='post-list'>
+                            <h4 onClick={() => { onOff() }}>{item}
+                                <span onClick={(event) => {
+                                    event.stopPropagation();
+                                    let temp = [ ...num ];
+                                    temp[ index ]++;
+                                    setNum(temp);
+                                }}>♥</span>
+                                <span className='font-size'>{num[ index ]}</span></h4>
+                            <p>{text}</p>
+                        </div>);
+                })
+            }
 
             <button onClick={() => { newsChange() }}>제목 변경</button>
-            {
-                modalFlag == true ? <Modal /> : null
 
+            {
+                modalFlag == true ? <Modal news={news} setNews={newsChange} bgColor={'lightGreen'} /> : null
             }
 
         </div >
