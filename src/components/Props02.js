@@ -19,6 +19,13 @@ export default function Props02() {
             })}
 
             <button onClick={() => {
+                // 배열 하나 생성 [...arr] 사용 후 arr.push해서 값 입력!
+                // let temp = [...txtArr];
+                // temp.push('두번째 야식');
+                // detailArr.push('살찐다');
+                // setTxtArr(temp);
+                // setDetailArr(detailArr);
+
                 // setNum(num+1); // 기본타입 변수 (숫자형 변수)
                 // 배열은 참조타입 변수이므로 재랜더링 안됨
                 // 참조타입 변수 (배열) 수정시 state업데이트 할때 => 함수명(기존변수명 => [...기존변수명, '추가입력값']);

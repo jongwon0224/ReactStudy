@@ -16,15 +16,28 @@
             position: absolute;
             top: 80px;
             left: 200px;
-            animation: slide 1s ease-out;
+            animation: slide 2s ease-out;
         }
 
         @keyframes slide {
             from {
                 left: -100px;
+                opacity: 0;
             }
             to {
                 left: 200px;
+                opacity: 1;
+            }
+        }
+
+        @keyframes disappear {
+            from {
+                left: 200px;
+                opacity: 1;
+            }
+            to {
+                left: -100px;
+                opacity: 0;
             }
         }
     </style>
@@ -40,6 +53,10 @@
         window.addEventListener('scroll', function () {
             let value = window.scrollY;
             console.log(value);
+            
+            if(value > 350) {
+                mainText.style.animation = 'disappear 2s ease-out'
+            }
         })
     </script>
 </body>
