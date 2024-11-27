@@ -26,9 +26,9 @@ function App(props) {
       // <Practice001/>,
       // <Quiz002/>
       // <Props02/>,
-      // <NewsBlog/>
+      <NewsBlog/>
       // <Quiz003/>
-      <Practice002/>
+      // <Practice002/>
   );
 }
 
