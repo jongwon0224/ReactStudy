@@ -12,7 +12,7 @@ import Quiz002 from './practice/Quiz002';
 import NewsBlog from './newsblog/NewsBlog';
 import Quiz003 from './practice/Quiz003';
 import Practice002 from './practice/Practice002';
-
+import FoodMarket from './foodmarket/FoodMarket';
 
 function App(props) {
 
@@ -26,9 +26,10 @@ function App(props) {
       // <Practice001/>,
       // <Quiz002/>
       // <Props02/>,
-      <NewsBlog/>
+      // <NewsBlog/>
       // <Quiz003/>
       // <Practice002/>
+      <FoodMarket/>
   );
 }
 
