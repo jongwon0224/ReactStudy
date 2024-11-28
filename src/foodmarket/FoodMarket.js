@@ -2,17 +2,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './FoodMarket.css';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-
-import banner_bg from './banner_bg.jpg';
-import food1 from './food1.jpg';
 
 import foodsData from '../data/foodsData';
 import { useState } from 'react';
-import FoodCard from './FoodCard';
+
+import { Routes, Route, Link } from 'react-router-dom';
+
+import Home from './pages/Home';
 
 export default function FoodMarket() {
 
@@ -23,7 +19,7 @@ export default function FoodMarket() {
         <div>
             <Navbar bg="light" data-bs-theme="light">
                 <Container>
-                    <Navbar.Brand href="#hg" style={{ fontSize: '30px', fontWeight: 'bold' }}>Market</Navbar.Brand>
+                    <Navbar.Brand href="/" style={{ fontSize: '30px', fontWeight: 'bold' }}>Market</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link href="#home" style={{ margin: '10px' }}>Home</Nav.Link>
                         <Nav.Link href="#features" style={{ margin: '10px' }}>Food Detail</Nav.Link>
@@ -37,54 +33,17 @@ export default function FoodMarket() {
             3. public폴더에 저장후 사용
             3-1. img src={'/food1/jpg'}
             3-2. img src={process.env.public_url + '/food.jpg'} */}
-            <div className='main-bg' style={{ backgroundImage: 'url(' + banner_bg + ') ' }}></div>
-
-            <br /><br />
-
-            <Container>
-                <Row>
-                    {/* <Col md={4} sd={2}><FoodCard food={foods[ 0 ]} content={foods[ 0 ].content} price={foods[ 0 ].price} /></Col>
-                    <Col md={4} sd={2}><FoodCard food={foods[ 1 ]} content={foods[ 1 ].content} price={foods[ 1 ].price} /></Col>
-                    <Col md={4} sd={2}><FoodCard food={foods[ 2 ]} content={foods[ 2 ].content} price={foods[ 2 ].price} /></Col> */}
 
 
 
+            <Routes>
 
-                    {foods.map((food, index) => {
-                        return (
-                            <Col md={4} sd={2}>
-                                <FoodCard food={food} index={index} foods={foods} />
-                            </Col>
-                        )
-                    })}    
-                    
-                    
+                <Route path='/' element={<Home foods={foods}/>}/>
+                
+                <Route path="/detail" element={<h1>detail page</h1>} />
+                <Route path="/info" element={<h1>info page</h1>} />
 
-
-                    {/* <Col md={4} sd={2}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={'./image/food2.jpg'} />
-                            <Card.Body>
-                                <Card.Title>{foods[ 1 ].title}</Card.Title>
-                                <Card.Text>{foods[ 1 ].content}</Card.Text>
-                                <Card.Text>{foods[ 1 ].price}</Card.Text>
-                                <Button variant="primary">상세보기</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={4} sd={8}>
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={'./image/food3.jpg'} />
-                            <Card.Body>
-                                <Card.Title>{foods[ 2 ].title}</Card.Title>
-                                <Card.Text>{foods[ 2 ].content}</Card.Text>
-                                <Card.Text>{foods[ 2 ].price}</Card.Text>
-                                <Button variant="primary">상세보기</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col> */}
-                </Row>
-            </Container>
+            </Routes>
 
         </div>
     )

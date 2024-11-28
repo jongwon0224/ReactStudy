@@ -28,8 +28,8 @@ function App(props) {
       // <Props02/>,
       // <NewsBlog/>
       // <Quiz003/>
-      // <Practice002/>,
-      <FoodMarket/>
+      // <FoodMarket/>,
+      <Practice002/>
   );
 }
 

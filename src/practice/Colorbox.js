@@ -3,15 +3,15 @@
 export default function ColorBox(props) {
 
     return (
-        <div
+        <div className="box"
             style={{
                 width: '100px',
                 height: '100px',
-                backgroundColor: props.color,
+                backgroundColor: props.bgcolor,
                 display: 'inline-block'
             }}
         >
-            <button>X</button>
+            <button onClick={ props.delBox }>X</button>
         </div>
     )
 }

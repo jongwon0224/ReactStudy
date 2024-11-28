@@ -1,16 +1,10 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import './FoodMarket.css';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-import banner_bg from './banner_bg.jpg';
-import food1 from './food1.jpg';
 
-import foodsData from '../data/foodsData';
+
+
+import foodsData from '../../data/foodsData';
 import { useState } from 'react';
 
 

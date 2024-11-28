@@ -3,48 +3,50 @@ import './Quiz003.css';
 import './Colorbox';
 import ColorBox from "./Colorbox";
 
+
 export default function Practice002() {
 
-    let [ box, boxCount ] = useState([]);
+    // let [ box, boxCount ] = useState([]);
+    // let [ box, setBox ] = useState([ 'red', 'blue', 'green', 'black' ]);
+    let [ box, setBox ] = useState([]);
 
     function btnONOFF(event) {
         const clickedID = event.target.id;
         event.stopPropagation();
-        let newBox = [...box];
-        
+        let newBox = [ ...box ];
+
         if (clickedID === 'btn1') {
-            newBox.unshift(<ColorBox color={'red'} />);
-            boxCount(newBox);
+            newBox = [ 'red', ...box ];
 
         } else if (clickedID === 'btn2') {
-            
-            newBox.unshift(<ColorBox color={'blue'} />);
-            boxCount(newBox);
+            newBox = [ 'blue', ...box ];
 
         } else if (clickedID === 'btn3') {
-            newBox.unshift(<ColorBox color={'green'} />);
-            boxCount(newBox);
+            newBox = [ 'green', ...box ];
 
         } else if (clickedID === 'btn4') {
-            newBox.push(<ColorBox color={'red'} />);
-            boxCount(newBox);
+            newBox = [ ...box, 'red' ];
 
         } else if (clickedID === 'btn5') {
-            newBox.push(<ColorBox color={'blue'} />);
-            boxCount(newBox);
+            newBox = [ ...box, 'blue' ];
 
         } else if (clickedID === 'btn6') {
-            newBox.push(<ColorBox color={'green'} />);
-            boxCount(newBox);
+            newBox = [ ...box, 'green' ];
 
         } else if (clickedID === 'btn7') {
             newBox.shift();
-            boxCount(newBox);
 
         } else if (clickedID === 'btn8') {
             newBox.pop();
-            boxCount(newBox);
         }
+
+        setBox(newBox);
+    }
+
+    function delBox(index) {
+        let newBoxes = [ ...box ];
+        newBoxes.splice(index, 1);
+        setBox(newBoxes);
     }
 
     return (
@@ -61,8 +63,12 @@ export default function Practice002() {
             <button id="btn8" onClick={(event) => { btnONOFF(event) }}>뒤 박스 삭제</button>
             <p></p>
 
-            {box}
-
+            {
+                box.map((item, index) => {
+                    return <ColorBox bgcolor={item} delBox={ () => delBox(index)} />
+                    
+                })
+            }
         </div>
     )
 }
