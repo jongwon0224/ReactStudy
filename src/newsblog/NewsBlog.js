@@ -118,9 +118,6 @@ export default function NewsBlog() {
                     num.push(0); //새로운 데이터에 숫자 출력
                     setInputText('');
 
-
-
-
                 }}>발행</button>
             </div>
 
