@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './practice/Practice001.css';
 import Basic01 from './components/Basic01';
 import State01 from './components/State01';
 import Export01 from './components/Export01';
@@ -28,7 +27,7 @@ function App(props) {
       // <Props02/>,
       // <NewsBlog/>
       // <Quiz003/>
-      // <FoodMarket/>,
+      // <FoodMarket/>
       <Practice002/>
   );
 }

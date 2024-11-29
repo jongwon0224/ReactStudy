@@ -3,12 +3,16 @@ import './Quiz003.css';
 import './Colorbox';
 import ColorBox from "./Colorbox";
 
+import { useEffect } from "react";
+
 
 export default function Practice002() {
 
     // let [ box, boxCount ] = useState([]);
     // let [ box, setBox ] = useState([ 'red', 'blue', 'green', 'black' ]);
     let [ box, setBox ] = useState([]);
+
+
 
     function btnONOFF(event) {
         const clickedID = event.target.id;
@@ -49,26 +53,41 @@ export default function Practice002() {
         setBox(newBoxes);
     }
 
-    return (
-        <div>
-            <button id="btn1" onClick={(event) => { btnONOFF(event) }}>앞빨간박스추가</button>
-            <button id="btn2" onClick={(event) => { btnONOFF(event) }}>앞파란박스추가</button>
-            <button id="btn3" onClick={(event) => { btnONOFF(event) }}>앞초록박스추가</button>
+    let [ modalFlag, setModal ] = useState(false);
 
-            <button id="btn4" onClick={(event) => { btnONOFF(event) }}>뒤빨간박스추가</button>
-            <button id="btn5" onClick={(event) => { btnONOFF(event) }}>뒤파란박스추가</button>
-            <button id="btn6" onClick={(event) => { btnONOFF(event) }}>뒤초록박스추가</button>
+    
 
-            <button id="btn7" onClick={(event) => { btnONOFF(event) }}>앞 박스 삭제</button>
-            <button id="btn8" onClick={(event) => { btnONOFF(event) }}>뒤 박스 삭제</button>
-            <p></p>
+return (
+    <div>
+        <button id="btn1" onClick={(event) => { btnONOFF(event) }}>앞빨간박스추가</button>
+        <button id="btn2" onClick={(event) => { btnONOFF(event) }}>앞파란박스추가</button>
+        <button id="btn3" onClick={(event) => { btnONOFF(event) }}>앞초록박스추가</button>
 
-            {
-                box.map((item, index) => {
-                    return <ColorBox bgcolor={item} delBox={ () => delBox(index)} />
-                    
-                })
-            }
-        </div>
-    )
+        <button id="btn4" onClick={(event) => { btnONOFF(event) }}>뒤빨간박스추가</button>
+        <button id="btn5" onClick={(event) => { btnONOFF(event) }}>뒤파란박스추가</button>
+        <button id="btn6" onClick={(event) => { btnONOFF(event) }}>뒤초록박스추가</button>
+
+        <button id="btn7" onClick={(event) => { btnONOFF(event) }}>앞 박스 삭제</button>
+        <button id="btn8" onClick={(event) => { btnONOFF(event) }}>뒤 박스 삭제</button>
+        <p></p>
+
+       
+
+
+
+        {
+            modalFlag == true ? <div style={{ backgroundColor: 'green' }}>HIIIII</div> : null
+        }
+
+
+        {
+            box.map((item, index) => {
+                return <ColorBox bgcolor={item} delBox={() => delBox(index)} />
+
+            })
+        }
+
+
+    </div>
+)
 }
